@@ -3,18 +3,10 @@
   =========================================================
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
-  * Product Page: https://www.creative-tim.com/product/muse-ant-design-dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
-  * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
-  =========================================================
-  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-// import { useState } from "react";
 import { Menu } from "antd";
 import { NavLink } from "react-router-dom";
-
 import { useState } from "react";
 import {
   DollarOutlined,
@@ -53,24 +45,6 @@ function Sidenav({ color }) {
     </svg>,
   ];
 
-  const profile = [
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      key={0}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12 7C12 8.10457 11.1046 9 10 9C8.89543 9 8 8.10457 8 7C8 5.89543 8.89543 5 10 5C11.1046 5 12 5.89543 12 7ZM9.99993 11C7.98239 11 6.24394 12.195 5.45374 13.9157C6.55403 15.192 8.18265 16 9.99998 16C11.8173 16 13.4459 15.1921 14.5462 13.9158C13.756 12.195 12.0175 11 9.99993 11Z"
-        fill={color}
-      ></path>
-    </svg>,
-  ];
-
   const menuItems = [
     {
       key: "/dashboard",
@@ -79,7 +53,7 @@ function Sidenav({ color }) {
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "dashboard" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/dashboard" ? "#f0f2f5" : "",
             }}
           >
             {dashboard}
@@ -95,7 +69,7 @@ function Sidenav({ color }) {
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "books" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/books" ? "#f0f2f5" : "",
             }}
           >
             {dashboard}
@@ -116,7 +90,7 @@ function Sidenav({ color }) {
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "gallery" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/gallery" ? "#f0f2f5" : "",
             }}
           >
             <FileImageOutlined />
@@ -137,7 +111,7 @@ function Sidenav({ color }) {
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "orders" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/orders" ? "#f0f2f5" : "",
             }}
           >
             <ShoppingCartOutlined />
@@ -153,7 +127,7 @@ function Sidenav({ color }) {
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "categories" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/categories" ? "#f0f2f5" : "",
             }}
           >
             <UnorderedListOutlined />
@@ -162,117 +136,10 @@ function Sidenav({ color }) {
         </NavLink>
       ),
     },
-    {
-      key: "/products",
-      label: (
-        <NavLink to="/products">
-          <span
-            className="icon"
-            style={{
-              backgroundColor: selectedKey === "products" ? "#f0f2f5" : "",
-            }}
-          >
-            <ProductOutlined />
-          </span>
-          <span className="label">Products</span>
-        </NavLink>
-      ),
-    },
-    {
-      key: "5",
-      label: "Reports",
-      className: "menu-item-header",
-    },
-    {
-      key: "/report-orders",
-      label: (
-        <NavLink to="/report-orders">
-          <span
-            className="icon"
-            style={{
-              backgroundColor: selectedKey === "report-orders" ? "#f0f2f5" : "",
-            }}
-          >
-            <FundOutlined />
-          </span>
-          <span className="label">Report Orders</span>
-        </NavLink>
-      ),
-    },
-    {
-      key: "/summary",
-      label: (
-        <NavLink to="/summary">
-          <span
-            className="icon"
-            style={{
-              backgroundColor: selectedKey === "summary" ? "#f0f2f5" : "",
-            }}
-          >
-            <PieChartOutlined />
-          </span>
-          <span className="label">Summary Report</span>
-        </NavLink>
-      ),
-    },
-    {
-      key: "/product-sales-report",
-      label: (
-        <NavLink to="/product-sales-report">
-          <span
-            className="icon"
-            style={{
-              backgroundColor:
-                selectedKey === "product-sales-report" ? "#f0f2f5" : "",
-            }}
-          >
-            <DollarOutlined />
-          </span>
-          <span className="label">Product Sales Report</span>
-        </NavLink>
-      ),
-    },
-    {
-      key: "6",
-      label: "Users Management",
-      className: "menu-item-header",
-    },
-    {
-      key: "/profile",
-      label: (
-        <NavLink to="/profile">
-          <span
-            className="icon"
-            style={{
-              backgroundColor: selectedKey === "profile" ? "#f0f2f5" : "",
-            }}
-          >
-            {profile}
-          </span>
-          <span className="label">Profile</span>
-        </NavLink>
-      ),
-    },
-    {
-      key: "/membership",
-      label: (
-        <NavLink to="/membership">
-          <span
-            className="icon"
-            style={{
-              backgroundColor: selectedKey === "membership" ? "#f0f2f5" : "",
-            }}
-          >
-            <IdcardOutlined />
-          </span>
-          <span className="label">Membership</span>
-        </NavLink>
-      ),
-    },
   ];
 
-  const handleMenuKey = (key) => {
-    setSelectedKey(key);
+  const handleMenuKey = (item) => {
+    setSelectedKey(item.key);
   };
 
   return (
@@ -285,7 +152,7 @@ function Sidenav({ color }) {
         theme="light"
         mode="inline"
         items={menuItems}
-        defaultSelectedKeys={[selectedKey]} // Set default selected keys
+        selectedKeys={[selectedKey]}
         onSelect={handleMenuKey}
       />
     </>

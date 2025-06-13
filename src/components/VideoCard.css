@@ -1,0 +1,285 @@
+.video-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Thumbnail Container */
+.video-thumbnail-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.video-thumbnail-link {
+  display: block;
+  position: relative;
+  text-decoration: none;
+}
+
+.video-thumbnail {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover .video-thumbnail {
+  transform: scale(1.05);
+}
+
+/* Duration Badge */
+.video-duration {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Video Actions */
+.video-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.video-card:hover .video-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+/* Collection Button */
+.collection-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #FF6B6B;
+}
+
+.collection-btn:hover {
+  background: #FF6B6B;
+  color: white;
+}
+
+.collection-btn.active {
+  background: #FF6B6B;
+  color: white;
+}
+
+.collection-btn.active:hover {
+  background: #FF5252;
+}
+
+/* Download Button */
+.download-btn {
+  background: rgba(255, 255, 255, 0.95);
+  color: #4ECDC4;
+}
+
+.download-btn:hover {
+  background: #4ECDC4;
+  color: white;
+}
+
+.download-btn.loading {
+  background: #FFA726;
+  color: white;
+  cursor: not-allowed;
+}
+
+.download-btn.success {
+  background: #4CAF50;
+  color: white;
+}
+
+.download-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Loading Animation */
+.loading-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Play Overlay */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.video-thumbnail-link:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: #333;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.play-button:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.play-icon {
+  margin-left: 2px; /* Visual centering adjustment */
+}
+
+/* Video Info */
+.video-info {
+  padding: 16px;
+}
+
+.video-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.video-title-link {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.video-title-link:hover {
+  color: #1976d2;
+  text-decoration: underline;
+}
+
+.video-channel {
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.video-meta {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-card {
+    border-radius: 8px;
+  }
+  
+  .video-info {
+    padding: 12px;
+  }
+  
+  .video-title {
+    font-size: 13px;
+  }
+  
+  .video-channel {
+    font-size: 12px;
+  }
+  
+  .video-meta {
+    font-size: 11px;
+  }
+  
+  .play-button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .play-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .action-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .video-actions {
+    top: 8px;
+    right: 8px;
+    gap: 6px;
+  }
+  
+  .video-duration {
+    bottom: 6px;
+    right: 6px;
+    font-size: 11px;
+  }
+}

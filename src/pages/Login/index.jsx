@@ -22,7 +22,7 @@ const LoginPage = () => {
     <Layout className="layout-default layout-signin">
       <Header>
         <div className="header-col header-brand">
-          <h5>WebfmSI.com</h5>
+          <h5>laksmiii</h5>
         </div>
         <div className="header-col header-nav">test</div>
         <div className="header-col header-btn">
@@ -43,7 +43,7 @@ const LoginPage = () => {
           <Col xs={{ span: 24 }} lg={{ span: 8 }} md={{ span: 12 }}>
             <Title className="mb-15">Sign In</Title>
             <Title className="font-regular text-muted" level={5}>
-              Enter your email and password to sign in
+              Masuin password dan emailmu wiiii
             </Title>
             <Form
               onFinish={() => handleLogin()}

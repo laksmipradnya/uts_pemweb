@@ -1,185 +1,126 @@
-import { Col, Row, Typography, Card, Flex, Table } from "antd";
-import Paragraph from "antd/lib/typography/Paragraph";
-import {
-  CoffeeOutlined,
-  IdcardOutlined,
-  ProductOutlined,
-  RightOutlined,
-  ShoppingCartOutlined,
-  TagsOutlined,
-  UnorderedListOutlined,
-} from "@ant-design/icons";
-import { Divider } from "antd/lib";
-import EChart from "../../components/chart/Echart";
-import { formatCurrency } from "../../utils/math";
-const { Title, Text } = Typography;
+import React, { useState } from "react";
+import VideoCard from "../../components/VideoCard";
+import "./Dashboard.css";
 
-const dataSource = [
+const videos = [
   {
-    key: "Jan",
-    months: "Jan",
-    orders: 1200,
-    total_income: 1200000,
+    title: "PANSOS & CARI VIEWERS!? PERTAMA KALI BABY ISSA DATENG KE PODCAST...",
+    channel: "CURHAT BANG Denny Sumargo",
+    views: "2,9 jt x ditonton",
+    time: "1 tahun yang lalu",
+    duration: "40.20",
+    thumbnail: "https://img.youtube.com/vi/7H5-hZ-Hs4g/mqdefault.jpg",
+    play_thumbnail: "https://img.youtube.com/vi/7H5-hZ-Hs4g/maxresdefault.jpg",
+    play_url: "https://www.youtube.com/watch?v=7H5-hZ-Hs4g"
   },
   {
-    key: "Feb",
-    months: "Feb",
-    orders: 3000,
-    total_income: 1000000,
+    title: "RUMAH TEMPAT JIWA JIWA YANG TERSESAT....",
+    channel: "Windah Basudara",
+    views: "1,1 jt x ditonton",
+    time: "Streaming 2 minggu yang lalu",
+    duration: "1.24.04",
+    thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/mqdefault.jpg",
+    play_thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/maxresdefault.jpg",
+    play_url: "https://www.youtube.com/watch?v=3fumBcKC6RE"
+  },
+  // Duplikat untuk contoh
+  {
+    title: "RUMAH TEMPAT JIWA JIWA YANG TERSESAT....",
+    channel: "Windah Basudara",
+    views: "1,1 jt x ditonton",
+    time: "Streaming 2 minggu yang lalu",
+    duration: "1.24.04",
+    thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/mqdefault.jpg",
+    play_thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/maxresdefault.jpg",
+    play_url: "https://www.youtube.com/watch?v=3fumBcKC6RE"
   },
   {
-    key: "Mar",
-    months: "Mar",
-    orders: 5000,
-    total_income: 5000000,
+    title: "RUMAH TEMPAT JIWA JIWA YANG TERSESAT....",
+    channel: "Windah Basudara",
+    views: "1,1 jt x ditonton",
+    time: "Streaming 2 minggu yang lalu",
+    duration: "1.24.04",
+    thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/mqdefault.jpg",
+    play_thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/maxresdefault.jpg",
+    play_url: "https://www.youtube.com/watch?v=3fumBcKC6RE"
   },
   {
-    key: "Apr",
-    months: "Apr",
-    orders: 3000,
-    total_income: 1000000,
-  },
-  {
-    key: "May",
-    months: "May",
-    orders: 3000,
-    total_income: 3000000,
-  },
-  {
-    key: "June",
-    months: "June",
-    orders: 5000,
-    total_income: 5000000,
+    title: "RUMAH TEMPAT JIWA JIWA YANG TERSESAT....",
+    channel: "Windah Basudara",
+    views: "1,1 jt x ditonton",
+    time: "Streaming 2 minggu yang lalu",
+    duration: "1.24.04",
+    thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/mqdefault.jpg",
+    play_thumbnail: "https://img.youtube.com/vi/3fumBcKC6RE/maxresdefault.jpg",
+    play_url: "https://www.youtube.com/watch?v=3fumBcKC6RE"
   },
 ];
 
-const columns = [
-  {
-    title: "Month",
-    dataIndex: "months",
-    key: "months",
-  },
-  {
-    title: "Orders",
-    dataIndex: "orders",
-    key: "orders",
-    render: (value, record) => formatCurrency(record?.orders),
-  },
-  {
-    title: "Total Income.",
-    dataIndex: "total_income",
-    key: "total_income",
-    render: (value, record) => formatCurrency(record?.total_income),
-  },
-];
+const Dashboard = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [notification, setNotification] = useState(null);
 
-function Dashboard() {
-  const cardDashboard = (icon, label, value) => {
-    return (
-      <div>
-        <Flex align="center">
-          <div style={{ marginRight: "15px" }}>{icon}</div>
-          <div>
-            <Title level={1} type={"primary"} style={{ marginBottom: 0 }}>
-              {value}
-            </Title>
-            <Text type="secondary">{label}</Text>
-          </div>
-        </Flex>
-      </div>
-    );
+  const filteredVideos = videos.filter((video) =>
+    `${video.title} ${video.channel}`.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Optional: Enhanced notification system
+  const showNotification = (message, type = 'success') => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 3000);
   };
+
   return (
-    <div className="layout-content">
-      <Row gutter={[24, 0]}>
-        <Col xs={24} md={12} sm={24} lg={12} xl={12} className="mb-24">
-          <Card bordered={false} className="criclebox h-full">
-            <Flex justify="flex-start">
-              {cardDashboard(
-                <UnorderedListOutlined
-                  style={{ fontSize: "64px", color: "#47c363" }}
-                />,
-                "Categories",
-                3,
-              )}
-              <div style={{ marginRight: "150px" }}></div>
-              {cardDashboard(
-                <IdcardOutlined
-                  style={{ fontSize: "64px", color: "#fc544b" }}
-                />,
-                "Members",
-                24,
-              )}
-            </Flex>
-            <Divider />
-            <Flex justify="flex-start">
-              {cardDashboard(
-                <ShoppingCartOutlined
-                  style={{ fontSize: "64px", color: "#6777ef" }}
-                />,
-                "Orders",
-                120,
-              )}
-              <div style={{ marginRight: "150px" }}></div>
-              {cardDashboard(
-                <ProductOutlined
-                  style={{ fontSize: "64px", color: "#3abaf4" }}
-                />,
-                "Products",
-                24,
-              )}
-            </Flex>
-            <Divider />
-            <Flex justify="flex-start">
-              {cardDashboard(
-                <TagsOutlined style={{ fontSize: "64px", color: "#ffa426" }} />,
-                "Discounts",
-                120,
-              )}
-              <div style={{ marginRight: "150px" }}></div>
-              {cardDashboard(
-                <CoffeeOutlined style={{ fontSize: "64px", color: "#000" }} />,
-                "Charges",
-                24,
-              )}
-            </Flex>
-            <Divider />
-            <div className="h-full col-content p-20">
-              <div className="ant-muse">
-                <Text>Built by SIFORS dev. teams</Text>
-                <Title level={5}>
-                  Content Management Systems by WebfmSI.com
-                </Title>
-                <Paragraph className="lastweek mb-36">
-                  See the progress graph from your store.
-                </Paragraph>
-              </div>
-              <div className="card-footer">
-                <a className="icon-move-right" href="/finance" target="_blank">
-                  Also you able to see the Finance Reporting
-                  {<RightOutlined />}
-                </a>
-              </div>
-            </div>
-          </Card>
-        </Col>
-        <Col xs={24} md={12} sm={24} lg={12} xl={12} className="mb-24">
-          <Card bordered={false} className="criclebox h-full">
-            <EChart />
-            <Divider />
-            <Table
-              size="small"
-              dataSource={dataSource}
-              columns={columns}
-              pagination={{
-                pageSize: 3,
-              }}
+    <div className="dashboard-container">
+      {/* Header bar */}
+      <div className="header-bar">
+        <h2 className="header-title">Beranda</h2>
+        <div className="search-wrapper">
+          <svg
+            className="search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
-          </Card>
-        </Col>
-      </Row>
+          </svg>
+          <input
+            type="text"
+            placeholder="Cari video atau channel..."
+            className="search-bar"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+      </div>
+
+      {/* Video Grid */}
+      <div className="video-grid">
+        {filteredVideos.length > 0 ? (
+          filteredVideos.map((video, index) => (
+            <VideoCard key={index} video={video} />
+          ))
+        ) : (
+          <p>Tidak ada video yang cocok.</p>
+        )}
+      </div>
+
+      {/* Optional: Notification */}
+      {notification && (
+        <div className={`notification ${notification.type}`}>
+          {notification.message}
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Dashboard;
