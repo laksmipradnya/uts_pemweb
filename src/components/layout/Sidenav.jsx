@@ -63,76 +63,66 @@ function Sidenav({ color }) {
       ),
     },
     {
-      key: "/books",
+      key: "/genre",
       label: (
-        <NavLink to="/books">
+        <NavLink to="/genre">
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "/books" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/genre" ? "#f0f2f5" : "",
             }}
           >
             {dashboard}
           </span>
-          <span className="label">Books</span>
+          <span className="label">Genre</span>
         </NavLink>
       ),
     },
     {
-      key: "7",
-      label: "Extra",
-      className: "menu-item-header",
-    },
-    {
-      key: "/gallery",
+      key: "/playlist",
       label: (
-        <NavLink to="/gallery">
+        <NavLink to="/playlist">
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "/gallery" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/playlist" ? "#f0f2f5" : "",
             }}
           >
             <FileImageOutlined />
           </span>
-          <span className="label">Galeri</span>
+          <span className="label">Playlist</span>
         </NavLink>
       ),
     },
     {
-      key: "4",
-      label: "Store",
-      className: "menu-item-header",
-    },
-    {
-      key: "/orders",
+      key: "/koleksi",
       label: (
-        <NavLink to="/orders">
+        <NavLink to="/koleksi">
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "/orders" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/koleksi" ? "#f0f2f5" : "",
             }}
           >
             <ShoppingCartOutlined />
           </span>
-          <span className="label">Orders</span>
+          <span className="label">Koleksi</span>
         </NavLink>
       ),
     },
     {
-      key: "/categories",
+      key: "/download",
       label: (
-        <NavLink to="/categories">
+        <NavLink to="/download">
           <span
             className="icon"
             style={{
-              backgroundColor: selectedKey === "/categories" ? "#f0f2f5" : "",
+              backgroundColor: selectedKey === "/download" ? "#f0f2f5" : "",
             }}
           >
             <UnorderedListOutlined />
           </span>
-          <span className="label">Categories</span>
+          <span className="label">Download</span>
         </NavLink>
       ),
     },

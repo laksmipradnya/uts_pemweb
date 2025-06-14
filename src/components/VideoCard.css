@@ -1,145 +1,153 @@
+/* Video Card - Dioptimalkan untuk Grid 3 Kolom */
 .video-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  position: relative;
+  background: #fff !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
 }
 
 .video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
 }
 
 /* Thumbnail Container */
 .video-thumbnail-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #f0f0f0;
+  position: relative !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  background: #f0f0f0 !important;
 }
 
 .video-thumbnail-link {
-  display: block;
-  position: relative;
-  text-decoration: none;
+  display: block !important;
+  position: relative !important;
+  text-decoration: none !important;
+  width: 100% !important;
 }
 
 .video-thumbnail {
-  width: 100%;
-  display: block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  width: 100% !important;
+  display: block !important;
+  aspect-ratio: 16 / 9 !important;
+  object-fit: cover !important;
+  transition: transform 0.3s ease !important;
 }
 
 .video-card:hover .video-thumbnail {
-  transform: scale(1.05);
+  transform: scale(1.05) !important;
 }
 
 /* Duration Badge */
 .video-duration {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
-  z-index: 2;
+  position: absolute !important;
+  bottom: 8px !important;
+  right: 8px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+  padding: 4px 6px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  z-index: 2 !important;
 }
 
 /* Video Actions */
 .video-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  gap: 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 3;
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  display: flex !important;
+  gap: 8px !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 3 !important;
 }
 
 .video-card:hover .video-actions {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .action-btn {
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  width: 36px !important;
+  height: 36px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .action-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
 .action-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.95) !important;
 }
 
 /* Collection Button */
 .collection-btn {
-  background: rgba(255, 255, 255, 0.95);
-  color: #FF6B6B;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #FF6B6B !important;
 }
 
 .collection-btn:hover {
-  background: #FF6B6B;
-  color: white;
+  background: #FF6B6B !important;
+  color: white !important;
 }
 
 .collection-btn.active {
-  background: #FF6B6B;
-  color: white;
+  background: #FF6B6B !important;
+  color: white !important;
 }
 
 .collection-btn.active:hover {
-  background: #FF5252;
+  background: #FF5252 !important;
 }
 
 /* Download Button */
 .download-btn {
-  background: rgba(255, 255, 255, 0.95);
-  color: #4ECDC4;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #4ECDC4 !important;
 }
 
 .download-btn:hover {
-  background: #4ECDC4;
-  color: white;
+  background: #4ECDC4 !important;
+  color: white !important;
 }
 
 .download-btn.loading {
-  background: #FFA726;
-  color: white;
-  cursor: not-allowed;
+  background: #FFA726 !important;
+  color: white !important;
+  cursor: not-allowed !important;
 }
 
 .download-btn.success {
-  background: #4CAF50;
-  color: white;
+  background: #4CAF50 !important;
+  color: white !important;
 }
 
 .download-btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.8;
+  cursor: not-allowed !important;
+  opacity: 0.8 !important;
 }
 
 /* Loading Animation */
 .loading-icon {
-  animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite !important;
 }
 
 @keyframes spin {
@@ -153,133 +161,161 @@
 
 /* Play Overlay */
 .play-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.4) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 1 !important;
 }
 
 .video-thumbnail-link:hover .play-overlay {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .play-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  color: #333;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50% !important;
+  color: #333 !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
 }
 
 .play-button:hover {
-  background: white;
-  transform: scale(1.1);
+  background: white !important;
+  transform: scale(1.1) !important;
 }
 
 .play-icon {
-  margin-left: 2px; /* Visual centering adjustment */
+  margin-left: 2px !important;
 }
 
 /* Video Info */
 .video-info {
-  padding: 16px;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  flex-grow: 1 !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .video-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  line-height: 1.4;
-  color: #333;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  color: #333 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  min-height: 40px !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 .video-title-link {
-  color: #333;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  color: #333 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
 }
 
 .video-title-link:hover {
-  color: #1976d2;
-  text-decoration: underline;
+  color: #1976d2 !important;
+  text-decoration: underline !important;
 }
 
 .video-channel {
-  font-size: 13px;
-  color: #666;
-  margin: 4px 0;
-  font-weight: 500;
+  font-size: 13px !important;
+  color: #666 !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
 .video-meta {
-  font-size: 12px;
-  color: #888;
-  margin: 4px 0;
+  font-size: 12px !important;
+  color: #888 !important;
+  margin: 0 !important;
+  line-height: 1.3 !important;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .video-card {
-    border-radius: 8px;
-  }
-  
+/* Responsive untuk Grid */
+@media (min-width: 700px) and (max-width: 899px) {
   .video-info {
-    padding: 12px;
+    padding: 14px !important;
+    gap: 6px !important;
   }
   
   .video-title {
-    font-size: 13px;
+    font-size: 13px !important;
+    min-height: 36px !important;
+  }
+}
+
+@media (max-width: 699px) {
+  .video-card {
+    border-radius: 8px !important;
+  }
+  
+  .video-info {
+    padding: 12px !important;
+    gap: 4px !important;
+  }
+  
+  .video-title {
+    font-size: 13px !important;
+    min-height: 36px !important;
   }
   
   .video-channel {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   
   .video-meta {
-    font-size: 11px;
+    font-size: 11px !important;
   }
   
   .play-button {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
   }
   
   .play-icon {
-    width: 20px;
-    height: 20px;
+    width: 20px !important;
+    height: 20px !important;
   }
   
   .action-btn {
-    width: 32px;
-    height: 32px;
+    width: 32px !important;
+    height: 32px !important;
   }
   
   .video-actions {
-    top: 8px;
-    right: 8px;
-    gap: 6px;
+    top: 8px !important;
+    right: 8px !important;
+    gap: 6px !important;
   }
   
   .video-duration {
-    bottom: 6px;
-    right: 6px;
-    font-size: 11px;
+    bottom: 6px !important;
+    right: 6px !important;
+    font-size: 11px !important;
   }
 }

@@ -137,9 +137,9 @@ const VideoCard = ({ video }) => {
         <div className="video-duration">{duration}</div>
       </div>
 
-      {/* Video Info */}
+      {/* Video Info - FIXED */}
       <div className="video-info">
-        <h3 className="video-title">
+        <div className="video-title">
           {play_url ? (
             <a
               href={play_url}
@@ -151,13 +151,13 @@ const VideoCard = ({ video }) => {
               {title}
             </a>
           ) : (
-            title
+            <span>{title}</span>
           )}
-        </h3>
-        <p className="video-channel">{channel}</p>
-        <p className="video-meta">
+        </div>
+        <div className="video-channel">{channel}</div>
+        <div className="video-meta">
           {views} • {time}
-        </p>
+        </div>
       </div>
     </div>
   );
