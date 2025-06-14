@@ -71,7 +71,7 @@ const Gallery = () => {
   const saveUpdatedVideo = (e) => {
     e.preventDefault();  // Mencegah refresh halaman saat form disubmit
 
-    axios.post('https://webfmsi.singapoly.com/api/playlist/update/${editVideoId}', {
+    axios.post(`https://webfmsi.singapoly.com/api/playlist/update/${editVideoId}`, {
       play_name: newVideo.play_name,
       play_url: newVideo.play_url,
       play_thumbnail: newVideo.play_thumbnail,
@@ -101,7 +101,7 @@ const Gallery = () => {
   // Fungsi untuk menghapus video dari API
   const deleteVideo = (id) => {
     if (window.confirm('Apakah Anda yakin ingin menghapus video ini?')) {
-      axios.delete('https://webfmsi.singapoly.com/api/playlist/${id}')
+      axios.delete(`https://webfmsi.singapoly.com/api/playlist/${id}`)
         .then(() => {
           setVideos(videos.filter((video) => video.id_play !== id));  // Menghapus video dari state
         })
