@@ -216,9 +216,9 @@ const Gallery = () => {
               </a>
             </div>
             <div className="video-details">
-              <h3>{video.play_name}</h3>
-              <p>{video.play_description}</p>
-              <p className="video-genre">Genre: {video.play_genre}</p> {/* Menampilkan genre */}
+              <h3 title={video.play_name}>{video.play_name}</h3>
+              <p className="description" title={video.play_description}>{video.play_description}</p>
+              <p className="video-genre" title={`Genre: ${video.play_genre}`}>Genre: {video.play_genre}</p>
             </div>
             <div className="video-actions">
               <button className="edit-btn" onClick={() => editVideo(video)}>Edit</button>
