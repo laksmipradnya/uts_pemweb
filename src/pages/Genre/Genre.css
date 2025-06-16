@@ -5,18 +5,18 @@ body {
   color: #FFFFFF;
 }
 
-.main-content {
+.genre-browser-main-content {
   padding: 20px;
 }
 
-.genre-container {
+.genre-browser-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 16px;
   margin-bottom: 32px;
 }
 
-.genre-card {
+.genre-browser-card {
   background: #282828;
   border-radius: 12px;
   overflow: hidden;
@@ -25,35 +25,35 @@ body {
   transition: transform 0.2s ease;
 }
 
-.genre-card:hover {
+.genre-browser-card:hover {
   transform: scale(1.05);
 }
 
-.genre-card img {
+.genre-browser-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
 }
 
-.genre-name {
+.genre-browser-name {
   padding: 12px;
   font-weight: bold;
   color: #ffffff; 
 
 }
 
-.video-section h2 {
+.genre-browser-video-section h2 {
   margin-bottom: 16px;
 }
 
-.video-grid {
+.genre-browser-video-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.video-card {
-  background: #1e1e1e;
+.genre-browser-video-card {
+  background: #f7f4f4;
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
@@ -62,24 +62,24 @@ body {
   transition: transform 0.2s ease;
 }
 
-.video-card:hover {
+.genre-browser-video-card:hover {
   transform: translateY(-4px);
 }
 
-.video-thumbnail {
+.genre-browser-video-thumbnail {
   position: relative;
   width: 100%;
   height: 180px;
   overflow: hidden;
 }
 
-.video-thumbnail img {
+.genre-browser-video-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.video-duration {
+.genre-browser-video-duration {
   position: absolute;
   bottom: 8px;
   right: 8px;
@@ -90,17 +90,17 @@ body {
   font-size: 0.75rem;
 }
 
-.video-info {
+.genre-browser-video-info {
   padding: 12px;
 }
 
-.video-title {
+.genre-browser-video-title {
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: #130808;
 }
 
-.video-meta {
+.genre-browser-video-meta {
   font-size: 0.8rem;
   color: #aaa;
 }

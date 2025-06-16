@@ -106,7 +106,7 @@ function Sidenav({ color }) {
           >
             <ShoppingCartOutlined />
           </span>
-          <span className="label">Koleksi</span>
+          <span className="label">Collection</span>
         </NavLink>
       ),
     },
@@ -135,8 +135,8 @@ function Sidenav({ color }) {
   return (
     <>
       <div className="brand">
-        <span>WebfmSI.com</span>
-      </div>
+  <span style={{ color: "#ff4d4f", fontSize: "24px", fontWeight: "bold" }}>MyTube</span>
+</div>
       <hr />
       <Menu
         theme="light"

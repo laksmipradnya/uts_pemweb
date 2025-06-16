@@ -8,7 +8,7 @@ const Gallery = () => {
     play_name: '',
     play_url: '',
     play_thumbnail: '',
-    play_genre: 'Music',
+    play_genre: '', 
     play_description: ''
   });
 
@@ -44,7 +44,7 @@ const Gallery = () => {
         play_name: '',
         play_url: '',
         play_thumbnail: '',
-        play_genre: 'Music',
+        play_genre: '', 
         play_description: ''
       });
       setIsFormVisible(false);  // Menutup form setelah video ditambahkan
@@ -61,7 +61,7 @@ const Gallery = () => {
       play_name: video.play_name,
       play_url: video.play_url,
       play_thumbnail: video.play_thumbnail,
-      play_genre: video.play_genre,
+      play_genre: video.play_genre, // Menyinkronkan genre dengan data dari API
       play_description: video.play_description
     });
     setIsFormVisible(true);  // Menampilkan form untuk edit video
@@ -88,7 +88,7 @@ const Gallery = () => {
         play_name: '',
         play_url: '',
         play_thumbnail: '',
-        play_genre: 'Music',
+        play_genre: '', 
         play_description: ''
       });
       setIsFormVisible(false);  // Menutup form setelah perubahan
@@ -123,14 +123,14 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      <h1>Gallery</h1>
+      <h1>Playlist</h1>
 
       {/* Search Bar */}
       <input
         type="text"
-        placeholder="Cari video..."
+        placeholder="Search by Video Title"
         className="search-bar"
-        value={searchQuery} // Pastikan ini hanya mengatur pencarian
+        value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
 
@@ -145,12 +145,12 @@ const Gallery = () => {
               play_name: '', // Reset form video
               play_url: '',
               play_thumbnail: '',
-              play_genre: 'Music',
+              play_genre: '', 
               play_description: ''
             });
           }}
         >
-          <span className="plus-icon">+</span> {/* Hanya simbol + */}
+          <span className="plus-icon">+</span>
         </button>
       )}
 
@@ -186,7 +186,8 @@ const Gallery = () => {
               onChange={(e) => setNewVideo({ ...newVideo, play_description: e.target.value })}
               required
             />
-            <select value={newVideo.play_genre} onChange={handleGenreChange}>
+            <select value={newVideo.play_genre} onChange={handleGenreChange} required>
+              <option value="">Select Genre</option>
               <option value="Music">Music</option>
               <option value="Song">Song</option>
               <option value="Movie">Movie</option>
@@ -195,10 +196,7 @@ const Gallery = () => {
             </select>
             <button type="submit">{editVideoId ? 'Save Changes' : 'Add Video'}</button>
           </form>
-          <button 
-            className="cancel-btn" 
-            onClick={() => setIsFormVisible(false)}
-          >
+          <button className="cancel-btn" onClick={() => setIsFormVisible(false)}>
             Cancel
           </button>
         </div>
@@ -209,15 +207,18 @@ const Gallery = () => {
         {filteredVideos.map((video) => (
           <div key={video.id_play} className="video-card">
             <div className="thumbnail-container">
-              <img
-                src={video.play_thumbnail}
-                alt={video.play_name}
-                className="video-thumbnail"
-              />
+              <a href={video.play_url} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={video.play_thumbnail}
+                  alt={video.play_name}
+                  className="video-thumbnail"
+                />
+              </a>
             </div>
             <div className="video-details">
               <h3>{video.play_name}</h3>
               <p>{video.play_description}</p>
+              <p className="video-genre">Genre: {video.play_genre}</p> {/* Menampilkan genre */}
             </div>
             <div className="video-actions">
               <button className="edit-btn" onClick={() => editVideo(video)}>Edit</button>

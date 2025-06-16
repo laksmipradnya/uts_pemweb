@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./genre.css";
+import "./Genre.css";
 
 const genres = [
   {
@@ -53,14 +53,6 @@ const videosByGenre = {
       channel: "Jazz Cafe",
       views: "850 rb x ditonton",
       time: "6 bulan yang lalu",
-    },
-    {
-      title: "Piano Classics",
-      url: "https://www.youtube.com/embed/3vnvfSCjnV8",
-      duration: "1:10:10",
-      channel: "Piano Mood",
-      views: "1 jt x ditonton",
-      time: "1 tahun yang lalu",
     },
   ],
   Song: [
@@ -122,30 +114,6 @@ const videosByGenre = {
       views: "600 rb x ditonton",
       time: "3 bulan yang lalu",
     },
-    {
-      title: "Award Winning",
-      url: "https://www.youtube.com/embed/3N7U7G3b20Q",
-      duration: "15:34",
-      channel: "ShortAwards",
-      views: "1,5 jt x ditonton",
-      time: "2 tahun yang lalu",
-    },
-    {
-      title: "Horror Short",
-      url: "https://www.youtube.com/embed/iFVVGgdJ8Fo",
-      duration: "11:45",
-      channel: "ScaryTube",
-      views: "2 jt x ditonton",
-      time: "1 tahun yang lalu",
-    },
-    {
-      title: "Animated Short",
-      url: "https://www.youtube.com/embed/ieN2vhslTTU",
-      duration: "6:22",
-      channel: "PixShorts",
-      views: "750 rb x ditonton",
-      time: "1 bulan yang lalu",
-    },
   ],
   Education: [
     {
@@ -191,7 +159,7 @@ const videosByGenre = {
   ],
 };
 
-function GenreUI() {
+function GenreBrowser() {
   const [selectedGenre, setSelectedGenre] = useState(null);
 
   const handleGenreClick = (genreName) => {
@@ -199,48 +167,48 @@ function GenreUI() {
   };
 
   return (
-    <main className="main-content">
+    <main className="genre-browser-main-content">
       <h1 className="title">Browse Genres</h1>
 
-      <section className="genre-container">
+      <section className="genre-browser-container">
         {genres.map((genre) => (
           <article
             key={genre.name}
-            className="genre-card"
+            className="genre-browser-card"
             tabIndex={0}
             role="button"
             onClick={() => handleGenreClick(genre.name)}
             aria-label={`${genre.name} genre`}
           >
             <img src={genre.img} alt={`${genre.name} genre`} />
-            <div className="genre-name">{genre.name}</div>
+            <div className="genre-browser-name">{genre.name}</div>
           </article>
         ))}
       </section>
 
       {selectedGenre && (
-        <section className="video-section">
+        <section className="genre-browser-video-section">
           <h2>{selectedGenre} Videos</h2>
-          <div className="video-grid">
+          <div className="genre-browser-video-grid">
             {(videosByGenre[selectedGenre] || []).map((video, index) => (
-              <div key={index} className="video-card">
+              <div key={index} className="genre-browser-video-card">
                 <a
                   href={video.url.replace("embed/", "watch?v=")}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="video-thumbnail-link"
                 >
-                  <div className="video-thumbnail">
+                  <div className="genre-browser-video-thumbnail">
                     <img
                       src={`https://img.youtube.com/vi/${video.url.split("embed/")[1]}/hqdefault.jpg`}
                       alt={video.title}
                     />
-                    <div className="video-duration">{video.duration}</div>
+                    <div className="genre-browser-video-duration">{video.duration}</div>
                   </div>
                 </a>
-                <div className="video-info">
-                  <div className="video-title">{video.title}</div>
-                  <div className="video-meta">
+                <div className="genre-browser-video-info">
+                  <div className="genre-browser-video-title">{video.title}</div>
+                  <div className="genre-browser-video-meta">
                     {video.channel}<br />
                     {video.views} • {video.time}
                   </div>
@@ -254,4 +222,4 @@ function GenreUI() {
   );
 }
 
-export default GenreUI;
+export default GenreBrowser;
